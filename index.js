@@ -1,10 +1,15 @@
 const cheerio = require("cheerio");
 const puppeteer = require("puppeteer-extra");
 const pluginStealth = require("puppeteer-extra-plugin-stealth");
-const browser = await puppeteer.launch({
-    headless: false, // Altere para "true" se deseja que o navegador não abra.
-    executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" // Necessário ter o chrome instalado (Esse é o caminho padrão).
-});
+
+var browser;
+
+(async () => {
+    browser = await puppeteer.launch({
+        headless: false, // Altere para "true" se deseja que o navegador não abra.
+        executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" // Necessário ter o chrome instalado (Esse é o caminho padrão).
+    });
+})();
 
 puppeteer.use(pluginStealth()); // Ignorar captchas.
 
@@ -52,6 +57,6 @@ exports.listCards = async (url, password) => {
             list.push(obj);
         };
     }
-    
+
     return deck;
 }
