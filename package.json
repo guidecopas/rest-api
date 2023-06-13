@@ -1,0 +1,17 @@
+{
+    "name": "scrapping-flashcards",
+    "version": "1.0.0",
+    "description": "API de FlashCards do Site QuizLet",
+    "main": "index.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "dependencies": {
+      "cheerio": "1.0.0-rc.12",
+      "express": "4.18.2",
+      "puppeteer": "20.6.0",
+      "puppeteer-extra": "3.3.6",
+      "puppeteer-extra-plugin-stealth": "2.11.2"
+    }
+  }
+  
