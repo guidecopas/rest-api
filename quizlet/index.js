@@ -1,6 +1,7 @@
 const cheerio = require("cheerio");
 const puppeteer = require("puppeteer-extra");
 const pluginStealth = require("puppeteer-extra-plugin-stealth");
+puppeteer.use(pluginStealth()); // Ignorar captchas.
 
 var browser;
 
@@ -10,8 +11,6 @@ var browser;
         executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" // Necessário ter o chrome instalado (Esse é o caminho padrão).
     });
 })();
-
-puppeteer.use(pluginStealth()); // Ignorar captchas.
 
 exports.listCards = async (url, password) => {
     const page = await browser.newPage();
