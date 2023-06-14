@@ -81,7 +81,6 @@ exports.textToImage = async (text) => {
         const filename = `${new Date().getTime()}.png`;
         fs.writeFileSync(`./temp/${filename}`, buffer);
         const link = await uploadFileToImgur(filename);
-
         return {
             status: 200,
             message: "Sucesso",

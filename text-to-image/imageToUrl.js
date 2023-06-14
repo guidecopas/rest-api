@@ -8,6 +8,7 @@ const imgurClientId = process.env.CLIENTID_IMGUR; // Crie uma conta e pegue seu 
 
 exports.uploadFileToImgur = async (filename) => {
     const imageData = fs.readFileSync(`./temp/${filename}`);
+    fs.unlink(`./temp/${filename}`, () => {});
     const response = await axios({
         method: 'POST',
         url: IMGUR_ENDPOINT,
